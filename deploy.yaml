@@ -4,11 +4,11 @@ kind: Deployment
 
 metadata:
 
-  name: nginx-deployment
+  name: angular-deployment
 
   labels:
 
-    app: nginx
+    app: angular
 
 spec:
 
@@ -18,7 +18,7 @@ spec:
 
     matchLabels:
 
-      app: nginx
+      app: angular
 
   template:
 
@@ -26,19 +26,19 @@ spec:
 
       labels:
 
-        app: nginx
+        app: angular
 
     spec:
 
       containers:
 
-      - name: nginx
+      - name: angular
 
-        image: nginx:stable
+        image: <+artifact.image>
 
         ports:
 
-        - containerPort: 80
+        - containerPort: 3000
 
 
 ---
@@ -46,11 +46,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: angular-service
 spec:
   selector:
-    app: nginx
+    app: angular
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 3000
