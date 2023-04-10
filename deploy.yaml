@@ -34,7 +34,7 @@ spec:
 
       - name: angular
 
-        image: <+artifact.image>
+        image: vampireking/angular-realworld:demo
 
         ports:
 
